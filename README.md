@@ -46,7 +46,8 @@ And then finally, ssh into the iPhone.
 If you can't ssh into your phone then you might need to kill the ```usbmuxd``` systemd daemon and in a separate terminal, manually run it using this command
 ```shell
 sudo usbmuxd -p -f
-``` and make sure iproxy is running on the port you specified, I used ```2222```
+```
+and make sure iproxy is running on the port you specified, I used ```2222```
 
 In the ssh, I used these commands.
 ```shell
@@ -56,7 +57,7 @@ cd /mnt8/usr/libexec/
 mv mobileactivationd mobileactivationdBackup
 exit
 ```
-Now, after exiting the ssh ramdisk, I copied the ```bypass/mobileactivationd_13_x/mobileactivationd``` to ```/mnt8/usr/libexec/mobileactivationd``` through the ```scp``` command
+Now, after exiting the ssh ramdisk, I copied the ```mobileactivationd``` from [iOS-Hactivation-Toolkit](https://github.com/exploit-development/iOS-Hacktivation-Toolkit/tree/master/bypass_scripts) to ```/mnt8/usr/libexec/mobileactivationd``` through the ```scp``` command
 
 You can do this by executing
 ```shell
@@ -82,7 +83,7 @@ Now finally reboot the iPhone:
 ```shell
 ./Linux/sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no -p2222 root@localhost "/sbin/reboot"
 ```
-The phone will naturally boot into the orignal root partition if you reboot it, but we need to tell it to boot from the palera1n rootful fakefs, the one where we put the matched ```mobileactivationd``` to.
+The iphone will naturally boot into the orignal root partition if you reboot it, but we need to tell it to boot from the palera1n rootful fakefs, the one where we put the patched ```mobileactivationd``` to.
 
 From here on, in order to do this, I put my phone back into DFU mode and executed the palera1n command to boot the fake fs every time I rebooted it:
 ```shell
