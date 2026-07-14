@@ -5,6 +5,7 @@ ____________________________
 This is how I bypassed iCloud lock on my 32GB iPhone 7 on iOS 15.8.8 with a broken home button.
 
 I got the iOS 13 mobileactivationd from [here](https://github.com/exploit-development/iOS-Hacktivation-Toolkit/tree/master/bypass_scripts) (Yes, the old version works on iOS 15)
+
 And have put it here for easier access
 
 Then I built the applera1n ramdisk, used it then ran these commands:
